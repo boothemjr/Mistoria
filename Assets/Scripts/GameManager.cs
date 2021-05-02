@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+        // for testing
         var wordList = new Glossary();
         wordList.Add(new WordEntry("comer", 
             new List<string>(){"como", "comes", "come", "comemos", "comen"}));
