@@ -7,20 +7,39 @@ using UnityEngine;
 
 public class BKT
 {
-    // todo: temp variables for testing, will need to come up with the numbers elsewhere
-    // the probability of the student knowing the skill beforehand
+    // DEFAULT BKT PARAMETERS
+    // the probability of the student knowing the skill beforehand, only for default constructor
     private static float pInit = 0.5f; 
     // the probability of the student demonstrating knowledge of the skill after an opportunity to apply it
-    private static float pTransit = 0.1f; 
+    private float pTransit = 0.1f; 
     // the probability the student makes a mistake when applying a known skill
-    private static float pSlip = 0.8f;
+    private float pSlip = 0.1f;
     //the probability that the student correctly applies an unknown skill (has a lucky guess)
-    private static float pGuess = 0.5f;
+    private float pGuess = 0.25f;
     
-    // container to hold history of past probabilities
-    //private List<float> pHistory = new List<float>();
+    //the changing + current probability of mastery
+    private float pMastery;
 
-    public static float CalculateBKT(bool isCorrect)
+    // container to hold history of past probabilities
+    private List<float> pHistory = new List<float>();
+
+    // default constructor
+    public BKT()
+    {
+        this.pMastery = pInit; // set pMastery to static pInit
+        pHistory.Add(this.pMastery);
+    }
+    
+    // todo - check implementation, not currently used
+    // constructor if pMastery is set 
+    public BKT(float currPMastery)
+    {
+        this.pMastery = currPMastery; // set pMastery to parameter currMastery
+        pHistory.Add(this.pMastery);
+    }
+    
+    // calculates and sets the new pMastery using BKT given whether or not it was correct
+    public void CalculateNewBKT(bool isCorrect)
     {
         float temp = 0;
         
@@ -28,21 +47,24 @@ public class BKT
         // given they know it, guessed it, or accidentally picked right (equation b)
         if (isCorrect) 
         {
-            temp = (pInit * (1 - pSlip)) / (pInit * (1 - pSlip) + (1 - pInit) * pGuess);
+            temp = (pMastery * (1 - pSlip)) / (pMastery * (1 - pSlip) + (1 - pMastery) * pGuess);
         }
         
         // the probability that the student answered INCORRECTLY,
         // given they didn't know it know it, guessed it, or accidentally picked wrong (equation b)
         else
         {
-            temp = (pInit * pSlip) / (pInit * pSlip + (1 - pInit) * (1 - pGuess));
+            temp = (pMastery * pSlip) / (pMastery * pSlip + (1 - pMastery) * (1 - pGuess));
         }
         
         // probability that they learned it after this observation (equation d)
-        temp = temp + (1 - temp) * pTransit;
+        pMastery = temp + (1 - temp) * pTransit;
+        pHistory.Add(pMastery);
+    }
 
-
-        return temp;
+    public float getPMastery()
+    {
+        return pMastery;
     }
 
 
