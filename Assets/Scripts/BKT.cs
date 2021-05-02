@@ -20,6 +20,7 @@ public class BKT
     //the changing + current probability of mastery
     private float pMastery;
 
+    // todo - not yet used for anything
     // container to hold history of past probabilities
     private List<float> pHistory = new List<float>();
 

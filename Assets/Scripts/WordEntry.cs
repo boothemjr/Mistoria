@@ -7,6 +7,8 @@ public class WordEntry
     public readonly string key;
     private readonly List<string> values;
     private BKT bkt;
+    private int count;
+    
 
     public WordEntry(string key, List<string> values)
     {
@@ -15,15 +17,28 @@ public class WordEntry
         bkt = new BKT();
     }
     
-
+    // check values for word, return true if found
     public bool containsWord(string toCheck)
     {
         return values.Contains(toCheck);
     }
 
+    // return probability of mastering the word 
     public float getMastery()
     {
         return bkt.getPMastery();
+    }
+
+    // return number of times the word has been used
+    public int getCount()
+    {
+        return count;
+    }
+    
+    // 
+    public void countWord()
+    {
+        count++;
     }
     
 }

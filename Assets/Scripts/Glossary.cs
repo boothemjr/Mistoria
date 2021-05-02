@@ -24,13 +24,19 @@ public class Glossary
     // returns whether or not it's found
     public bool findWord(string key)
     {
-        int i = 0;
+        int i = -1; // have to start -1 for while loop
         bool found = false;
-        while (!found && i < glossary.Count) // todo - always starts at i=0, different data structure could optimize
+        while (!found && i < glossary.Count-1) // todo - always starts at i=0, different data structure could optimize
         {
+            i++; //increase index
             found = glossary[i].containsWord(key);
-            i++;
         }
+
+        if (found)
+        {
+            glossary[i].countWord(); // increase the count of word encounters
+        }
+        
         return found;
     }
 
