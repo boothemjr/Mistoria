@@ -9,14 +9,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
+        var wordList = new Glossary(); //initialize the glossary
+        
         // for testing
-        var wordList = new Glossary();
-        wordList.Add(new WordEntry("comer", 
+        /*wordList.Add(new WordEntry("comer", 
             new List<string>(){"como", "comes", "come", "comemos", "comen"}));
         wordList.Add(new WordEntry("hablar",
             new List<string>() {"hablo", "hablas", "habla", "hablamos", "hablan"}));
         
-        Debug.Log("findWord = " + wordList.findWord("coma"));
+        Debug.Log("findWord = " + wordList.findWord("coma"));*/
 
     }
 

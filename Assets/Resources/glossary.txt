@@ -1,0 +1,2 @@
+comer,como,comes,come,comemos,comen
+hablar,hablo,hablas,hablas,hablamos,hablan
