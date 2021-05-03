@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Glossary
 {
+
     // container for all the word entries
     private List<WordEntry> glossary = new List<WordEntry>();
 
@@ -11,9 +14,23 @@ public class Glossary
     // empty constructor
     public Glossary()
     {
-        
+        string text = Resources.Load<TextAsset>("glossary").ToString(); // load the text asset as a string
+
+
+        while (text.Length > 0)
+        {
+            Debug.Log("text = " + text);
+            string key = text.Substring(0, text.IndexOf(',')); // store key which is the first string
+            string nextLine = text.Substring(0, text.IndexOf('\n')); // grab the next line of text
+            List<string> values = nextLine.Split(',').ToList(); // parse into separate strings
+            text = text.Substring(text.IndexOf('\n')+1); //remove the parsed line from text
+            Debug.Log("line of text added!\n");
+           
+        }
+
     }
 
+    // todo - consider removing
     // adds a wordEntry to the database
     public void Add(WordEntry entry)
     {
