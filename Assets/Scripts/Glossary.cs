@@ -16,47 +16,17 @@ public class Glossary
     {
         string text = Resources.Load<TextAsset>("glossary").ToString(); // load the text asset as a string
 
-        Debug.Log("working1");
+
         while (text.Length > 0)
         {
-            Debug.Log("working2");
-
+            Debug.Log("text = " + text);
             string key = text.Substring(0, text.IndexOf(',')); // store key which is the first string
             string nextLine = text.Substring(0, text.IndexOf('\n')); // grab the next line of text
             List<string> values = nextLine.Split(',').ToList(); // parse into separate strings
-            text = text.Substring(text.IndexOf('\n')); //remove the parsed line from text
+            text = text.Substring(text.IndexOf('\n')+1); //remove the parsed line from text
             Debug.Log("line of text added!\n");
+           
         }
-        
-
-        /*while (text != String.Empty) // repeat while text isn't empty
-        {
-        Debug.Log("text = " + text);
-        resolve !verbs
-        if (text.StartsWith("!"))
-        {
-            text = text.Substring(1); // remove "!"
-            Debug.Log("! removed, text = " + text);
-        }
-        if (text.StartsWith("verb")) // todo - change to set flag via switch
-        {
-        text = text.Substring(text.IndexOf(' ')+1); // remove "verb", +1 to move past the space
-        Debug.Log("verb removed, text = " + text);
-        string key = text.Substring(0, text.IndexOf(',')); // store key
-        Debug.Log("key = " + key);
-        List<string> values = text.Split(',').ToList();
-
-        }
-        text = text.Substring(text.IndexOf(' '));
-        
-        //check if there's more
-        }
-        else
-        {
-            
-        }
-            
-        }*/
 
     }
 
