@@ -19,14 +19,14 @@ public class Glossary
 
         while (text.Length > 0)
         {
-            Debug.Log("text = " + text);
             string key = text.Substring(0, text.IndexOf(',')); // store key which is the first string
             string nextLine = text.Substring(0, text.IndexOf('\n')); // grab the next line of text
             List<string> values = nextLine.Split(',').ToList(); // parse into separate strings
             text = text.Substring(text.IndexOf('\n')+1); //remove the parsed line from text
-            Debug.Log("line of text added!\n");
-           
+            var temp = new WordEntry(key, values);
+            glossary.Add(temp);
         }
+        Debug.Log(glossary.Count + " words were added to the database!");
 
     }
 
