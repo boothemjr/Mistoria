@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Michsky.UI.ModernUIPack;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    
+    public GameObject progressBar;
+    //private Component progressBarComp;
+    private float timeRemaining;
+    private readonly float maxTime = 10f; 
+    
+    
     // enumerations of the different proficiency levels
     enum ProficiencyLevel { novLow, novMid, novHi, interLow, interMid, interHi, advLow, advMid, advHi, superior }
     
@@ -12,20 +20,28 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         var wordList = new Glossary(); //initialize the glossary
-        
-        // for testing
-        /*wordList.Add(new WordEntry("comer", 
-            new List<string>(){"como", "comes", "come", "comemos", "comen"}));
-        wordList.Add(new WordEntry("hablar",
-            new List<string>() {"hablo", "hablas", "habla", "hablamos", "hablan"}));
-        
-        Debug.Log("findWord = " + wordList.findWord("coma"));*/
+        timeRemaining = maxTime;
 
+        //progressBarComp = progressBar.GetComponent<ProgressBarMB>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //reset the timer
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            timeRemaining = maxTime;
+        }
+
+        // stop the timer when 0
+        if (timeRemaining > 0f)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
+
+        // update time
+        // wait until event (speech + text)
+
     }
 }
