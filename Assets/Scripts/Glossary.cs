@@ -10,7 +10,6 @@ public class Glossary
     // container for all the word entries
     private List<WordEntry> glossary = new List<WordEntry>();
 
-    // todo - is this needed? I think so..
     // empty constructor
     public Glossary()
     {
@@ -26,7 +25,7 @@ public class Glossary
             var temp = new WordEntry(key, values);
             glossary.Add(temp);
         }
-        Debug.Log(glossary.Count + " words were added to the database!");
+        Debug.Log(glossary.Count + " words were added to the database!"); //todo - log not needed
 
     }
 
