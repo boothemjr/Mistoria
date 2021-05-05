@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Michsky.UI.ModernUIPack;
 using UnityEngine;
-
+using Mistoria;
 public class GameManager : MonoBehaviour
 {
-    
+    private ProficiencyLevel currLevel;
     public GameObject progressBar;
     //private Component progressBarComp;
     private float timeRemaining;
@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     
     
     // enumerations of the different proficiency levels
-    enum ProficiencyLevel { novLow, novMid, novHi, interLow, interMid, interHi, advLow, advMid, advHi, superior }
     
     
     // Start is called before the first frame update
@@ -21,7 +20,8 @@ public class GameManager : MonoBehaviour
     {
         var wordList = new Glossary(); //initialize the glossary
         timeRemaining = maxTime;
-
+        currLevel = ProficiencyLevel.novLow;
+        
         //progressBarComp = progressBar.GetComponent<ProgressBarMB>();
     }
 
