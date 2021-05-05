@@ -7,22 +7,15 @@ public class GameManager : MonoBehaviour
 {
     private ProficiencyLevel currLevel;
     public GameObject progressBar;
-    //private Component progressBarComp;
     private float timeRemaining;
-    private readonly float maxTime = 10f; 
-    
-    
-    // enumerations of the different proficiency levels
-    
-    
+    private readonly float maxTime = 10f; //todo - replace with a timer based on the length of the prompt
+
     // Start is called before the first frame update
     void Start()
     {
         var wordList = new Glossary(); //initialize the glossary
         timeRemaining = maxTime;
-        currLevel = ProficiencyLevel.novLow;
-        
-        //progressBarComp = progressBar.GetComponent<ProgressBarMB>();
+        currLevel = ProficiencyLevel.NovLow;
     }
 
     // Update is called once per frame
@@ -40,8 +33,8 @@ public class GameManager : MonoBehaviour
             timeRemaining -= Time.deltaTime;
         }
 
-        // update time
-        // wait until event (speech + text)
+        // todo - update time
+        // todo - wait until event (speech + text)
 
     }
 }

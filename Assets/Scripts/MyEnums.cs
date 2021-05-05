@@ -7,16 +7,16 @@ namespace Mistoria
         // to represent the individual proficiency levels
         public enum ProficiencyLevel
         {
-                novLow,
-                novMid,
-                novHi,
-                interLow,
-                interMid,
-                interHi,
-                advLow,
-                advMid,
-                advHi,
-                superior
+                NovLow,
+                NovMid,
+                NovHi,
+                InterLow,
+                InterMid,
+                InterHi,
+                AdvLow,
+                AdvMid,
+                AdvHi,
+                Superior
         }
 }
 
