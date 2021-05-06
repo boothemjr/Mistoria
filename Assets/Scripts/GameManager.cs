@@ -13,9 +13,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var wordList = new Glossary(); //initialize the glossary
+        // SET INITIAL VARIABLES
         timeRemaining = maxTime;
         currLevel = ProficiencyLevel.NovLow;
+        
+        // BUILD GLOSSARY
+        var wordList = new Glossary(); //initialize the glossary
+
     }
 
     // Update is called once per frame

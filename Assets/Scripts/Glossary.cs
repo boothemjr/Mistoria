@@ -15,7 +15,6 @@ public class Glossary
     {
         string text = Resources.Load<TextAsset>("glossary").ToString(); // load the text asset as a string
 
-
         while (text.Length > 0)
         {
             string key = text.Substring(0, text.IndexOf(',')); // store key which is the first string
