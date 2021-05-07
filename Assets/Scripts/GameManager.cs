@@ -18,27 +18,34 @@ public class GameManager : MonoBehaviour
         currLevel = ProficiencyLevel.NovLow;
         
         // BUILD GLOSSARY
-        var wordList = new Glossary(); //initialize the glossary
+        var wordList = new Glossary();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateTimer();
+        CheckKeys();
+    }
+
+    // Check for any keyboard input
+    private void CheckKeys()
+    {
         //reset the timer
         if (Input.GetKeyDown(KeyCode.R))
         {
             timeRemaining = maxTime;
         }
+    }
 
+    // Update the timer
+    private void UpdateTimer()
+    {
         // stop the timer when 0
         if (timeRemaining > 0f)
         {
             timeRemaining -= Time.deltaTime;
         }
-
-        // todo - update time
-        // todo - wait until event (speech + text)
-
     }
 }

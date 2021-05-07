@@ -7,9 +7,8 @@ using UnityEngine;
 
 public class PromptScriptableObject : ScriptableObject
 {
-    public string prompt;
-    public ResponsesScriptableObject responseOptions;
-    public int minLevel;
-    public int maxLevel;
+    public string promptText;
+    public string[] responseOptions = new string[4];
+    public int minLevel, maxLevel;
 
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f17a8dfd3b5d9498e80872759446eb, type: 3}
+  m_Name: dog109
+  m_EditorClassIdentifier: 
+  promptText: 'Oh no! My dog has run away. Have you seen him? His name is Max. '
+  responseOptions:
+  - I think I saw a small, brown, fluffy dog running around in the park.
+  - "I really don\u2019t like dogs. They smell funny and make a lot of noise."
+  - Would you like to meet my cat? His name is also Max!
+  - Dogs are my favorite. I hope to meet yours soon!
+  minLevel: 0
+  maxLevel: 9
