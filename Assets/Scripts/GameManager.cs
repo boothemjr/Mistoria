@@ -6,26 +6,26 @@ using Mistoria;
 public class GameManager : MonoBehaviour
 {
     private ProficiencyLevel currLevel;
-    public GameObject progressBar;
-    private float timeRemaining;
+    public ProgressBar timerBar;
     private readonly float maxTime = 10f; //todo - replace with a timer based on the length of the prompt
 
     // Start is called before the first frame update
     void Start()
     {
         // SET INITIAL VARIABLES
-        timeRemaining = maxTime;
         currLevel = ProficiencyLevel.NovLow;
         
         // BUILD GLOSSARY
         var wordList = new Glossary();
+        
+        // SET TIMER
+        timerBar.currentPercent = 100f;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateTimer();
         CheckKeys();
     }
 
@@ -35,17 +35,8 @@ public class GameManager : MonoBehaviour
         //reset the timer
         if (Input.GetKeyDown(KeyCode.R))
         {
-            timeRemaining = maxTime;
+            timerBar.currentPercent = 100f;
         }
     }
 
-    // Update the timer
-    private void UpdateTimer()
-    {
-        // stop the timer when 0
-        if (timeRemaining > 0f)
-        {
-            timeRemaining -= Time.deltaTime;
-        }
-    }
 }
