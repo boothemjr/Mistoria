@@ -216,14 +216,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: 9e62a195f9acb474aac7e2e2187be639, type: 3}
   buttonVar: {fileID: 0}
   normalText: {fileID: 5662210000933799586}
   soundSource: {fileID: 0}
   rippleParent: {fileID: 5662210002175160092}
   useCustomContent: 0
-  enableButtonSounds: 0
-  useHoverSound: 1
+  enableButtonSounds: 1
+  useHoverSound: 0
   useClickSound: 1
   useRipple: 1
   rippleShape: {fileID: 21300000, guid: d25e2ce15dd1c67438e4b70f404fb197, type: 3}

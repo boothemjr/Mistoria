@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public ProficiencyLevel currLevel; // the current proficiency level\
     public NotionScriptableObject startNotion; // the dialogue notion to start with
     private NotionScriptableObject currNotion; // the current notion being discussed in the dialogue
@@ -15,22 +16,40 @@ public class GameManager : MonoBehaviour
     private GameObject[] buttons; // the arr of button objects
     public GameObject eventSystemObject; // the object holding the canvas/ui event system
     private EventSystem eventSystem; // the canvas/ui event system
+    //public GameObject modalWindowManagerObject;
+    //private ModalWindowManager modalWindowManager; 
     
     // Start is called before the first frame update
     void Start()
     {
+        if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
         // SET INITIAL VARIABLES
         currLevel = ProficiencyLevel.NovLow;
         currNotion = startNotion;
         timerBar.currentPercent = 100f;
         eventSystem = eventSystemObject.GetComponent<EventSystem>();
-
+        //modalWindowManager = modalWindowManagerObject.GetComponent<ModalWindowManager>();
+        
         // BUILD GLOSSARY
         var wordList = new Glossary();
 
         // SET UP NOTION
         currNotion.UpdateProfLevel(currLevel);
         
+        // UPDATE NPC DIALOGUE UI
+        //modalWindowManager.UpdateUI();
+        //modalWindowManager.UpdateUI();
+
+
         // ASSIGN BUTTONS   
         buttons = GameObject.FindGameObjectsWithTag("Button");
         for (int i = 0; i < buttons.Length; i++)
@@ -46,9 +65,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CheckKeys();
-
-        // if selection
-        // update notion + dialogues
+        //modalWindowManager.UpdateUI();
     }
 
     // Check and resolve if a dialogue option has been selected.
@@ -57,6 +74,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Button #" + choice + " was selected.");
     }
 
+    // todo - remove when no longer needed
     // Check for any keyboard input
     private void CheckKeys()
     {
