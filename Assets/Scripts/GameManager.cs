@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Michsky.UI.ModernUIPack;
 using UnityEngine;
 using Mistoria;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -11,21 +12,22 @@ public class GameManager : MonoBehaviour
     public NotionScriptableObject startNotion; // the dialogue notion to start with
     private NotionScriptableObject currNotion; // the current notion being discussed in the dialogue
     public ProgressBar timerBar; // the countdown timer progress bar
-    public GameObject[] buttons; // the arr of button objects
-
+    private GameObject[] buttons; // the arr of button objects
+    public GameObject eventSystemObject; // the object holding the canvas/ui event system
+    private EventSystem eventSystem; // the canvas/ui event system
+    
     // Start is called before the first frame update
     void Start()
     {
         // SET INITIAL VARIABLES
         currLevel = ProficiencyLevel.NovLow;
         currNotion = startNotion;
-        
+        timerBar.currentPercent = 100f;
+        eventSystem = eventSystemObject.GetComponent<EventSystem>();
+
         // BUILD GLOSSARY
         var wordList = new Glossary();
-        
-        // SET TIMER
-        timerBar.currentPercent = 100f;
-        
+
         // SET UP NOTION
         currNotion.UpdateProfLevel(currLevel);
         
@@ -44,9 +46,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CheckKeys();
-        
+
         // if selection
-            // update notion + dialogues
+        // update notion + dialogues
+    }
+
+    // Check and resolve if a dialogue option has been selected.
+    public void SelectDialogueOption(int choice)
+    {
+        Debug.Log("Button #" + choice + " was selected.");
     }
 
     // Check for any keyboard input
