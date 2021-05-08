@@ -196,6 +196,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1675076306}
     m_Modifications:
+    - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: buttonText
+      value: Text 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3388747880558105366, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -280,6 +284,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840648347426252648, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840648347426252648, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: m_fontSize
+      value: 22.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6507249010312339548, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_Name
       value: Button - Option4
@@ -324,6 +336,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1675076306}
     m_Modifications:
+    - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: buttonText
+      value: Text 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3388747880558105366, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -407,6 +423,14 @@ PrefabInstance:
     - target: {fileID: 3388747880558105366, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840648347426252648, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840648347426252648, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: m_fontSize
+      value: 22.5
       objectReference: {fileID: 0}
     - target: {fileID: 6507249010312339548, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_Name
@@ -550,6 +574,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1675076306}
     m_Modifications:
+    - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: buttonText
+      value: Text 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3388747880558105366, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -633,6 +661,14 @@ PrefabInstance:
     - target: {fileID: 3388747880558105366, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840648347426252648, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840648347426252648, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: m_fontSize
+      value: 22.5
       objectReference: {fileID: 0}
     - target: {fileID: 6507249010312339548, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_Name
@@ -747,6 +783,18 @@ PrefabInstance:
     - target: {fileID: 247403014487188046, guid: f60a4ca9a1879e34c9d0bd15446a86d0, type: 3}
       propertyPath: m_Name
       value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 247403015955326186, guid: f60a4ca9a1879e34c9d0bd15446a86d0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.011764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 247403015955326186, guid: f60a4ca9a1879e34c9d0bd15446a86d0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.011764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 247403015955326186, guid: f60a4ca9a1879e34c9d0bd15446a86d0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7921569
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f60a4ca9a1879e34c9d0bd15446a86d0, type: 3}
@@ -1119,6 +1167,10 @@ PrefabInstance:
       propertyPath: timerBar
       value: 
       objectReference: {fileID: 1283168454}
+    - target: {fileID: 6603010149787967768, guid: 5b9328a78b45ae046af3ef0a9af9bdf0, type: 3}
+      propertyPath: startNotion
+      value: 
+      objectReference: {fileID: 11400000, guid: 2dfbeebbe7df5be4ebb403de4b19db97, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b9328a78b45ae046af3ef0a9af9bdf0, type: 3}
 --- !u!1001 &5662210002619334610
@@ -4217,6 +4269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1675076306}
     m_Modifications:
+    - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: buttonText
+      value: Text 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3388747880558105366, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4300,6 +4356,14 @@ PrefabInstance:
     - target: {fileID: 3388747880558105366, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840648347426252648, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840648347426252648, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
+      propertyPath: m_fontSize
+      value: 22.5
       objectReference: {fileID: 0}
     - target: {fileID: 6507249010312339548, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: m_Name
