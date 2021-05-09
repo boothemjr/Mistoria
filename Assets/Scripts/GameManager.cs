@@ -16,9 +16,8 @@ public class GameManager : MonoBehaviour
     private GameObject[] buttons; // the arr of button objects
     public GameObject eventSystemObject; // the object holding the canvas/ui event system
     private EventSystem eventSystem; // the canvas/ui event system
-    //public GameObject modalWindowManagerObject;
-    //private ModalWindowManager modalWindowManager; 
-    
+    private GameObject npcDialogueObject; // the object holding the NPC's dialogue text
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +36,6 @@ public class GameManager : MonoBehaviour
         currNotion = startNotion;
         timerBar.currentPercent = 100f;
         eventSystem = eventSystemObject.GetComponent<EventSystem>();
-        //modalWindowManager = modalWindowManagerObject.GetComponent<ModalWindowManager>();
         
         // BUILD GLOSSARY
         var wordList = new Glossary();
@@ -46,10 +44,11 @@ public class GameManager : MonoBehaviour
         currNotion.UpdateProfLevel(currLevel);
         
         // UPDATE NPC DIALOGUE UI
-        //modalWindowManager.UpdateUI();
-        //modalWindowManager.UpdateUI();
-
-
+        npcDialogueObject = GameObject.FindWithTag("NPCDialogue");
+        npcDialogueObject.GetComponent<ModalWindowManager>().descriptionText 
+            = currNotion.currPrompt.promptText;
+        npcDialogueObject.GetComponent<ModalWindowManager>().UpdateUI();
+        
         // ASSIGN BUTTONS   
         buttons = GameObject.FindGameObjectsWithTag("Button");
         
@@ -66,7 +65,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CheckKeys();
-        //modalWindowManager.UpdateUI();
     }
 
     // Check and resolve if a dialogue option has been selected.
