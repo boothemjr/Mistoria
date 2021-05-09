@@ -27,13 +27,6 @@ public class Glossary
         Debug.Log(glossary.Count + " words were added to the database!"); //todo - log not needed
 
     }
-
-    // todo - consider removing
-    // adds a wordEntry to the database
-    public void Add(WordEntry entry)
-    {
-        glossary.Add(entry);
-    }
     
     // searches the the word collection of each work entry to see if the variation of the word is found
     // returns whether or not it's found

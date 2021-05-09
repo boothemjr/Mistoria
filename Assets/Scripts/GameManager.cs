@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Michsky.UI.ModernUIPack;
 using UnityEngine;
 using Mistoria;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager instance; // for the singleton
     public ProficiencyLevel currLevel; // the current proficiency level\
     public NotionScriptableObject startNotion; // the dialogue notion to start with
     private NotionScriptableObject currNotion; // the current notion being discussed in the dialogue
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
         }
         
         // SET INITIAL VARIABLES
+        string temp;
         currLevel = ProficiencyLevel.NovLow;
         currNotion = startNotion;
         timerBar.currentPercent = 100f;
@@ -45,9 +47,11 @@ public class GameManager : MonoBehaviour
         
         // UPDATE NPC DIALOGUE UI
         npcDialogueObject = GameObject.FindWithTag("NPCDialogue");
-        npcDialogueObject.GetComponent<ModalWindowManager>().descriptionText 
-            = currNotion.currPrompt.promptText;
-        npcDialogueObject.GetComponent<ModalWindowManager>().UpdateUI();
+        temp = currNotion.currPrompt.promptText; //grab prompt text
+        npcDialogueObject.GetComponent<ModalWindowManager>().descriptionText = temp; // put prompt text in dialogue box
+        npcDialogueObject.GetComponent<ModalWindowManager>().UpdateUI(); // update UI
+        // count words in dialogue
+        CountWords(wordList, temp);
         
         // ASSIGN BUTTONS   
         buttons = GameObject.FindGameObjectsWithTag("Button");
@@ -55,10 +59,14 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < buttons.Length; i++)
         {
             // assign each button with the new prompt text
-            string temp = currNotion.currPrompt.responseOptions[i]; // grab response options
+            temp = currNotion.currPrompt.responseOptions[i]; // grab response options
             buttons[i].GetComponent<ButtonManagerBasic>().buttonText = temp; // place on each button
             buttons[i].GetComponent<ButtonManagerBasic>().UpdateUI(); // update UI
+            
+            // count words when added to button
+            CountWords(wordList, temp);
         }
+
     }
 
     // Update is called once per frame
@@ -81,6 +89,19 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             timerBar.currentPercent = 100f;
+        }
+    }
+
+    private void CountWords(Glossary glossary, string wordsToCheck)
+    {
+        wordsToCheck = wordsToCheck.ToLower(); // set to lower case
+        var arrWordsToCheck = wordsToCheck.Split(' '); // split up each word
+        foreach (var word in arrWordsToCheck)
+        {
+            string temp // remove punctuation from each word
+                = new string(word.ToCharArray().Where(c => !char.IsPunctuation(c)).ToArray());
+            glossary.findWord(temp);
+            
         }
     }
 

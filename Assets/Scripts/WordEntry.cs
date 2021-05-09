@@ -39,6 +39,8 @@ public class WordEntry
     public void countWord()
     {
         count++;
+        Debug.Log("The count of " + key + " is now " + count);
+        
     }
     
 }
