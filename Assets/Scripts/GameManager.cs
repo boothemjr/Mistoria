@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 
         // ASSIGN BUTTONS   
         buttons = GameObject.FindGameObjectsWithTag("Button");
+        
         for (int i = 0; i < buttons.Length; i++)
         {
             // assign each button with the new prompt text
