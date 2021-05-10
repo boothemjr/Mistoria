@@ -18,33 +18,34 @@ public class WordEntry
     }
     
     // check values for word, return true if found
-    public bool containsWord(string toCheck)
+    public bool ContainsWord(string toCheck)
     {
         return values.Contains(toCheck);
     }
 
     // return probability of mastering the word 
-    public float getMastery()
+    public float GetMastery()
     {
         return bkt.getPMastery();
     }
 
     // return number of times the word has been used
-    public int getCount()
+    public int GetCount()
     {
         return count;
     }
     
     // increment the number of instances by one
-    public void countWord()
+    public void CountWord()
     {
         count++;
     }
 
     // updates BKT with whether or not they got it correct
-    public void getCorrect(bool isCorrect)
+    public void AddCorrect(bool isCorrect)
     {
         bkt.CalculateNewBKT(isCorrect);
+        Debug.Log("The new BKT of " + key + " is " + bkt.getPMastery());
     }
     
 }

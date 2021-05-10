@@ -37,7 +37,7 @@ public class Glossary
         while (!found && i < glossary.Count-1) // todo - always starts at i=0, different data structure could optimize
         {
             i++; //increase index
-            found = glossary[i].containsWord(key);
+            found = glossary[i].ContainsWord(key);
         }
 
         return glossary[i];
@@ -51,12 +51,12 @@ public class Glossary
         while (!found && i < glossary.Count-1) // todo - always starts at i=0, different data structure could optimize
         {
             i++; //increase index
-            found = glossary[i].containsWord(key);
+            found = glossary[i].ContainsWord(key);
         }
 
         if (found)
         {
-            glossary[i].countWord(); // increase the count of word encounters
+            glossary[i].CountWord(); // increase the count of word encounters
         }
         
         return found;

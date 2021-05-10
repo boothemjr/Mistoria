@@ -61,6 +61,7 @@ public class BKT
         // probability that they learned it after this observation (equation d)
         pMastery = temp + (1 - temp) * pTransit;
         pHistory.Add(pMastery);
+        
     }
 
     public float getPMastery()

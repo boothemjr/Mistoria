@@ -84,10 +84,8 @@ public class GameManager : MonoBehaviour
     {
         int i = 0;
         bool isCorrect = false;
-
-        Debug.Log("correct = " + currNotion.currPrompt.correctResponses);
         
-        /*// loop while there are more correct responses options to check or you haven't already gotten it correct
+        // loop while there are more correct responses options to check or you haven't already gotten it correct
         while (i < currNotion.currPrompt.correctResponses.Length && isCorrect == false)
         {
             if (currNotion.currPrompt.correctResponses[i] == choice)
@@ -95,12 +93,8 @@ public class GameManager : MonoBehaviour
                 isCorrect = true;
             }
             i++;
-        }*/
-        
-        Debug.Log("isCorrect = " + isCorrect);
-            
-         //add a correct for each in the focus list
-
+        }
+        ResolveNotion(isCorrect);
     }
 
     // todo - remove when no longer needed
@@ -124,7 +118,7 @@ public class GameManager : MonoBehaviour
                 = new string(word.ToCharArray().Where(c => !char.IsPunctuation(c)).ToArray());
             
             // add to focus list if not already added
-            if (wordList.getWord(temp).getCount() == 0) // if not yet counted
+            if (wordList.getWord(temp).GetCount() == 0) // if not yet counted
             {
                 focusWords.Add(wordList.getWord(temp).key); // add key to focus words
             }
@@ -132,6 +126,18 @@ public class GameManager : MonoBehaviour
             glossary.findAndCountWord(temp); // increment the number of instances of the word in glossary
             
         }
+    }
+
+    // The steps to conclude the notion and prepare for the next notion
+    private void ResolveNotion(bool isCorrect)
+    {
+        //add a correct for each in the focus list
+
+        foreach (var key in focusWords)
+        {
+            wordList.getWord(key).AddCorrect(isCorrect);
+        }
+        
     }
 
 }
