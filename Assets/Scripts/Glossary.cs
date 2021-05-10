@@ -61,5 +61,11 @@ public class Glossary
         
         return found;
     }
+    
+    // returns a list of all wordentry in the glossary
+    public List<WordEntry> GetAllWords()
+    {
+        return glossary;
+    }
 
 }

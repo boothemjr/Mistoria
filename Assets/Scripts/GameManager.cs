@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     private GameObject npcDialogueObject; // the object holding the NPC's dialogue text
     private List<string> focusWords; // the list of words that will be impacted at the end of this notion
     public Glossary wordList; // the database of word entries
+    public GameObject dataWindowObject; // the window showing word data
+    private ModalWindowManager dataWindowManager; // the manager for updating the data window
 
     // Start is called before the first frame update
     void Start()
@@ -61,8 +63,28 @@ public class GameManager : MonoBehaviour
             
         }
         
+        // UPDATE DATA WINDOW
+        dataWindowManager = dataWindowObject.GetComponent<ModalWindowManager>();
+        UpdateDataWindow();
+
     }
-    
+
+    // Update the contents of the data window
+    private void UpdateDataWindow()
+    {
+        string temp = "";
+
+        foreach (var entry in wordList.GetAllWords())
+        {
+            temp += entry.key + " has been seen " + entry.GetCount()
+                    + " times with a current BKT of " + entry.GetMastery() + "\n";
+        }
+        
+        dataWindowManager.descriptionText = temp;
+        dataWindowManager.UpdateUI();
+        
+    }
+
     // Resolve if a dialogue option has been selected.
     public void SelectDialogueOption(int choice)
     {
@@ -79,6 +101,7 @@ public class GameManager : MonoBehaviour
             i++;
         }
         ResolveNotion(isCorrect);
+        UpdateDataWindow();
     }
 
     private void CountWords(Glossary glossary, string wordsToCheck)
