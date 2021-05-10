@@ -238,7 +238,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: buttonText
-      value: Text 4
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: soundSource
@@ -836,7 +836,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: buttonText
-      value: Text 3
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: soundSource
@@ -1294,7 +1294,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: buttonText
-      value: Text 2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: soundSource
@@ -2485,7 +2485,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: buttonText
-      value: Text 1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1868430414896808216, guid: af1015ff030afd44cbb0476b1076f324, type: 3}
       propertyPath: soundSource

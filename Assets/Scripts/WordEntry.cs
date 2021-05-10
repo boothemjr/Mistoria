@@ -35,12 +35,16 @@ public class WordEntry
         return count;
     }
     
-    // 
+    // increment the number of instances by one
     public void countWord()
     {
         count++;
-        Debug.Log("The count of " + key + " is now " + count);
-        
+    }
+
+    // updates BKT with whether or not they got it correct
+    public void getCorrect(bool isCorrect)
+    {
+        bkt.CalculateNewBKT(isCorrect);
     }
     
 }
