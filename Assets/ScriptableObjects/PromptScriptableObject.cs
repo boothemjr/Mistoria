@@ -10,7 +10,7 @@ public class PromptScriptableObject : ScriptableObject
     public string promptText;
     public string[] responseOptions = new string[4];
     public string[] npcResponses = new string[4];
-    public int[] correctResponses;
+    public int correctResponses;
     public string npcIgnoreResponse;
     public int minLevel, maxLevel;
 

@@ -85,7 +85,9 @@ public class GameManager : MonoBehaviour
         int i = 0;
         bool isCorrect = false;
 
-        // loop while there are more correct responses options to check or you haven't already gotten it correct
+        Debug.Log("correct = " + currNotion.currPrompt.correctResponses);
+        
+        /*// loop while there are more correct responses options to check or you haven't already gotten it correct
         while (i < currNotion.currPrompt.correctResponses.Length && isCorrect == false)
         {
             if (currNotion.currPrompt.correctResponses[i] == choice)
@@ -93,7 +95,7 @@ public class GameManager : MonoBehaviour
                 isCorrect = true;
             }
             i++;
-        }
+        }*/
         
         Debug.Log("isCorrect = " + isCorrect);
             
