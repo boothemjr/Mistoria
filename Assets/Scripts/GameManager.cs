@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance; // for the singleton
     public ProficiencyLevel currLevel; // the current proficiency level\
     public NotionScriptableObject startNotion; // the dialogue notion to start with
     private NotionScriptableObject currNotion; // the current notion being discussed in the dialogue
@@ -24,15 +23,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
 
         // SET INITIAL VARIABLES
         string temp;
@@ -72,13 +62,7 @@ public class GameManager : MonoBehaviour
         }
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        CheckKeys();
-    }
-
+    
     // Resolve if a dialogue option has been selected.
     public void SelectDialogueOption(int choice)
     {
@@ -97,17 +81,6 @@ public class GameManager : MonoBehaviour
         ResolveNotion(isCorrect);
     }
 
-    // todo - remove when no longer needed
-    // Check for any keyboard input
-    private void CheckKeys()
-    {
-        //reset the timer
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            timerBar.currentPercent = 100f;
-        }
-    }
-
     private void CountWords(Glossary glossary, string wordsToCheck)
     {
         wordsToCheck = wordsToCheck.ToLower(); // set to lower case
@@ -116,15 +89,12 @@ public class GameManager : MonoBehaviour
         {
             string temp // remove punctuation from each word
                 = new string(word.ToCharArray().Where(c => !char.IsPunctuation(c)).ToArray());
-            
-            // add to focus list if not already added
-            if (wordList.getWord(temp).GetCount() == 0) // if not yet counted
+
+            // increment the number of instances of the word in glossary
+            if (glossary.findAndCountWord(temp)) // only if word found + counted
             {
                 focusWords.Add(wordList.getWord(temp).key); // add key to focus words
             }
-            
-            glossary.findAndCountWord(temp); // increment the number of instances of the word in glossary
-            
         }
     }
 

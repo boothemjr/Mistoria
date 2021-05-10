@@ -64,6 +64,7 @@ public class BKT
         
     }
 
+    // get the current bkt value
     public float getPMastery()
     {
         return pMastery;

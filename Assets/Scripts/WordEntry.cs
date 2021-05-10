@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class WordEntry
 {
-    public readonly string key;
-    private readonly List<string> values;
-    private BKT bkt;
-    private int count;
+    public readonly string key; // the key value for each set of words
+    private readonly List<string> values; // all the values for each key
+    private BKT bkt; // a BKT object for holding probabalistic information
+    private int count; // the number of times this word has been counted, ie. appeared.
     
-
+    // make a new wordentry
     public WordEntry(string key, List<string> values)
     {
         this.key = key;

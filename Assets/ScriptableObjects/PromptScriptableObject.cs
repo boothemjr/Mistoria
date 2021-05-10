@@ -7,11 +7,11 @@ using UnityEngine;
 
 public class PromptScriptableObject : ScriptableObject
 {
-    public string promptText;
-    public string[] responseOptions = new string[4];
-    public string[] npcResponses = new string[4];
-    public int[] correctResponses;
-    public string npcIgnoreResponse;
-    public int minLevel, maxLevel;
+    public string promptText; // the text of this prompt
+    public string[] responseOptions = new string[4]; // the 4 responses the player can choose from
+    public string[] npcResponses = new string[4]; // the 4 responses the npc will respond with
+    public int[] correctResponses; // which responses will be "correct"
+    public string npcIgnoreResponse; // the npcs response if the time expires
+    public int minLevel, maxLevel; // the min and max proficiency level for this prompt
 
 }

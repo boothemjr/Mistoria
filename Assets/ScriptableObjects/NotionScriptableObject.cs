@@ -9,17 +9,18 @@ using UnityEngine;
 
 public class NotionScriptableObject : ScriptableObject
 {
-    private ProficiencyLevel currLevel;
-    public PromptScriptableObject[] prompt;
-    public PromptScriptableObject currPrompt;
-    public NotionScriptableObject nextNotionScriptableObject;
+    private ProficiencyLevel currLevel; // the current proficiency level
+    public PromptScriptableObject[] prompt; // arr of prompts, depending on level
+    public PromptScriptableObject currPrompt; // the current prompt given the level
+    public NotionScriptableObject nextNotionScriptableObject; // the notion that will follow this one
 
+    // update the proficiency level
     public void UpdateProfLevel(ProficiencyLevel newLevel)
     {
-        currLevel = newLevel;
+        currLevel = newLevel; // set the proficiency level
                 
         //todo - add logic for prompt selection
-        currPrompt = prompt[0];
+        currPrompt = prompt[0]; // select the corresponding prompt
     }
     
 }
