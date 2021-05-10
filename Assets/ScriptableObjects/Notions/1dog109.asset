@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f17a8dfd3b5d9498e80872759446eb, type: 3}
   m_Name: 1dog109
   m_EditorClassIdentifier: 
-  promptText: "Oh, no! Mi perro s\xE9 escap\xF3. \xBFLo viste?"
+  promptText: "Oh, no! Mi perro se escap\xF3. \xBFLo viste?"
   responseOptions:
   - Vi a tu perro en el parque.
   - No me gustan los perros.
@@ -23,6 +23,7 @@ MonoBehaviour:
   - "Ok.. pero \xBFsabes d\xF3nde est\xE1 mi perro?"
   - "\xBFTu gato? No me importa tu gato. \xA1Busco a mi perro!"
   - "Ok.. pero \xBFsabes d\xF3nde est\xE1 mi perro?"
+  correctResponses: 00000000
   npcIgnoreResponse: "\xBFAlo? Ok.. Me voy. Adios."
   minLevel: 0
   maxLevel: 9

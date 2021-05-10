@@ -18,7 +18,7 @@ public class NotionScriptableObject : ScriptableObject
     {
         currLevel = newLevel;
                 
-        // add logic for prompt selection
+        //todo - add logic for prompt selection
         currPrompt = prompt[0];
     }
     

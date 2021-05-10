@@ -24,25 +24,39 @@ public class Glossary
             var temp = new WordEntry(key, values);
             glossary.Add(temp);
         }
-        Debug.Log(glossary.Count + " words were added to the database!"); //todo - log not needed
+        Debug.Log(glossary.Count + " words were added to the database!");
 
     }
     
-    // searches the the word collection of each work entry to see if the variation of the word is found
-    // returns whether or not it's found
-    public bool findWord(string key)
+    // searches the word collection of each word entry to see if the variation of the word is found
+    // returns the wordEntry object
+    public WordEntry getWord(string key)
     {
         int i = -1; // have to start -1 for while loop
         bool found = false;
         while (!found && i < glossary.Count-1) // todo - always starts at i=0, different data structure could optimize
         {
             i++; //increase index
-            found = glossary[i].containsWord(key);
+            found = glossary[i].ContainsWord(key);
+        }
+
+        return glossary[i];
+    }
+    
+    // does same as above, but increments the count of each world
+    public bool findAndCountWord(string key)
+    {
+        int i = -1; // have to start -1 for while loop
+        bool found = false;
+        while (!found && i < glossary.Count-1) // todo - always starts at i=0, different data structure could optimize
+        {
+            i++; //increase index
+            found = glossary[i].ContainsWord(key);
         }
 
         if (found)
         {
-            glossary[i].countWord(); // increase the count of word encounters
+            glossary[i].CountWord(); // increase the count of word encounters
         }
         
         return found;
